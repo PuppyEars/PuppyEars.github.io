@@ -1,0 +1,6 @@
+---
+title: "Quinn Scheider"
+---
+![](images/profile.jpg){width=250px}
+
+My name is Quinn Scheider, and I'm currently a Masters of Data Science student at The University of British Columbia Vancouver.
