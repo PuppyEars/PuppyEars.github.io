@@ -14,16 +14,22 @@ R
 
 Clone the repository in a terminal using the git clone commands:
 
+```bash
 git clone https://github.com/PuppyEars/PuppyEars.github.io.git
 cd PuppyEars.github.io
+```
 
 Then run:
+```bash
 uv sync
+```
 
 Then, within RStudio Console, run:
+```
 renv::load()
 renv::restore()
-
+```
 Now we back in the terminal, render the website using the below command:
-
+```
 uv run quarto render
+```
