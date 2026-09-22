@@ -1,0 +1,105 @@
+---
+title: "Python Penguin Analysis"
+author: "Quinn Scheider"
+date: 2026-09-22
+---
+
+## Question to try and answer/work through and the data with it
+
+How do body mass and flipper length differ among each of the penguin types
+
+Data: [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/),
+Palmer Station Antarctica LTER.
+
+## Loading and prepping the data
+
+```{python}
+#| label: load-python-penguins
+#| echo: true
+#| warning: false
+
+from palmerpenguins import load_penguins
+import pandas as pd
+import matplotlib.pyplot as plt
+import sys
+
+print("Python executable:", sys.executable)
+
+penguins = load_penguins()
+
+penguins_clean = penguins.dropna(
+    subset=[
+        "species",
+        "body_mass_g",
+        "flipper_length_mm",
+        "bill_length_mm",
+        "bill_depth_mm",
+    ]
+).copy()
+
+penguins_clean.head()
+```
+
+## Ploting the body mass and flipper length grouped by each penguin type
+
+```{python}
+#| label: fig-python-penguin-size
+#| fig-cap: "Body mass and flipper length for the three Palmer Penguin species."
+#| echo: true
+#| warning: false
+
+fig, ax = plt.subplots(figsize=(8, 5))
+
+colors = {
+    "Adelie": "#1f77b4",
+    "Chinstrap": "#ff7f0e",
+    "Gentoo": "#2ca02c",
+}
+
+for species, species_data in penguins_clean.groupby(
+    "species",
+    observed=True,
+):
+    ax.scatter(
+        species_data["flipper_length_mm"],
+        species_data["body_mass_g"],
+        label=species,
+        color=colors[species],
+        alpha=0.7,
+    )
+
+ax.set_title("Penguin body mass and flipper length")
+ax.set_xlabel("Flipper length (mm)")
+ax.set_ylabel("Body mass (g)")
+ax.legend(title="Species")
+ax.grid(alpha=0.2)
+
+plt.tight_layout()
+plt.show()
+```
+
+## Find the heaviest penguins
+
+```{python}
+#| label: python-largest-penguins
+#| echo: true
+
+largest_penguins = (
+    penguins_clean[
+        [
+            "species",
+            "island",
+            "sex",
+            "flipper_length_mm",
+            "body_mass_g",
+        ]
+    ]
+    .sort_values("body_mass_g", ascending=False)
+)
+
+largest_penguins
+```
+
+As we can see from the table above,
+the heaviest observations are Gentoo penguins as we can see from the
+corr. values and the plot we created.

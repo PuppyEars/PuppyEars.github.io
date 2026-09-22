@@ -1,0 +1,64 @@
+---
+title: "R Penguin Analysis"
+author: "Quinn Scheider"
+date: 2026-09-22
+---
+
+## Question to try and answer/work through and the data with it
+
+How do bill length and the mass differ among the penguins sex
+
+Data: [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/),
+Palmer Station Antarctica LTER.
+
+## Loading and prepping the data
+
+```{r}
+#| label: prepare-r-penguins
+#| echo: true
+#| message: false
+#| warning: false
+
+library(dplyr)
+library(ggplot2)
+library(palmerpenguins)
+
+penguins_clean <- penguins |>
+  filter(
+    !is.na(species),
+    !is.na(bill_length_mm),
+    !is.na(bill_depth_mm),
+    !is.na(sex)
+  )
+
+head(penguins_clean)
+```
+
+## Plotting the bill length
+
+```{r}
+#| label: fig-r-penguin-bills
+#| fig-cap: "Bill length and bill depth by Palmer Penguin species and sex."
+#| echo: true
+#| message: false
+#| warning: false
+
+ggplot(
+  penguins_clean,
+  aes(
+    x = bill_length_mm,
+    y = bill_depth_mm,
+    colour = species,
+    shape = sex
+  )
+) +
+  geom_point(alpha = 0.75, size = 2.2) +
+  labs(
+    title = "Penguin bill dimensions vary by species",
+    x = "Bill length (mm)",
+    y = "Bill depth (mm)",
+    colour = "Species",
+    shape = "Sex"
+  ) +
+  theme_minimal()
+```
