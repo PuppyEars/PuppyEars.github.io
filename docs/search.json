@@ -4,7 +4,7 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "My first weeks in MDS\n\n\n\n\n\n\n\n\nSep 8, 2026\n\n\nQuinn Scheider\n\n\n\n\n\nNo matching items"
+    "text": "Python Penguin Analysis\n\n\n\n\n\n\n\n\nSep 22, 2026\n\n\nQuinn Scheider\n\n\n\n\n\n\n\n\n\n\n\n\nR Penguin Analysis\n\n\n\n\n\n\n\n\nSep 22, 2026\n\n\nQuinn Scheider\n\n\n\n\n\n\n\n\n\n\n\n\nMy first weeks in MDS\n\n\n\n\n\n\n\n\nSep 8, 2026\n\n\nQuinn Scheider\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -26,5 +26,82 @@
     "title": "About",
     "section": "",
     "text": "I just graduated from my undergrad in May of 2026 from Saint John’s University with a major in Mathematics. During undergrad I played on the Saint John’s Men’s Volleyball team where I was selected as a Captain my Junior and Senior year. I’ve had two different internships during undergrad, working as a HRIS Analyst for Delta Airlines and a Data Engineer at Commscope, where I grew my pashion for the field of Data Science and Data Engineering. In my freetime I love to go mountaineering, splitboarding/ski touring, climbing, and working out/running. I’m originally from Minnesota in the United States, and I’m also a EU Blue Card eligible citizen. I’m not 100% sure where I’d like to live after finishing the MDS program at UBC but I hope to move to a place where I can continue my pashion for mountaineering and splitboarding to help me keep a solid worklife balance in my future. As a U.S. citizen with a EU Blue card the easiest places for me to move would obviously be in the U.S. or a EU country but I’m also open to living somewhere in Canada!"
+  },
+  {
+    "objectID": "posts/python-penguin-analysis/index.html",
+    "href": "posts/python-penguin-analysis/index.html",
+    "title": "Python Penguin Analysis",
+    "section": "",
+    "text": "How do body mass and flipper length differ among each of the penguin types\nData: Palmer Penguins, Palmer Station Antarctica LTER."
+  },
+  {
+    "objectID": "posts/python-penguin-analysis/index.html#question-to-try-and-answerwork-through-and-the-data",
+    "href": "posts/python-penguin-analysis/index.html#question-to-try-and-answerwork-through-and-the-data",
+    "title": "Python Penguin Analysis",
+    "section": "",
+    "text": "How do body mass and flipper length differ among each of the penguin types\nData: Palmer Penguins, Palmer Station Antarctica LTER."
+  },
+  {
+    "objectID": "posts/python-penguin-analysis/index.html#loading-and-prepping-the-data",
+    "href": "posts/python-penguin-analysis/index.html#loading-and-prepping-the-data",
+    "title": "Python Penguin Analysis",
+    "section": "Loading and prepping the data",
+    "text": "Loading and prepping the data\n\nfrom palmerpenguins import load_penguins\nimport pandas as pd\nimport matplotlib.pyplot as plt\nimport sys\n\nprint(\"Python executable:\", sys.executable)\n\npenguins = load_penguins()\n\npenguins_clean = penguins.dropna(\n    subset=[\n        \"species\",\n        \"body_mass_g\",\n        \"flipper_length_mm\",\n        \"bill_length_mm\",\n        \"bill_depth_mm\",\n    ]\n).copy()\n\npenguins_clean.head()\n\nPython executable: /Users/quinnscheider/Desktop/UBC_MDS/Block_1/521/Labs/PuppyEars.github.io/.venv/bin/python3\n\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n4\nAdelie\nTorgersen\n36.7\n19.3\n193.0\n3450.0\nfemale\n2007\n\n\n5\nAdelie\nTorgersen\n39.3\n20.6\n190.0\n3650.0\nmale\n2007"
+  },
+  {
+    "objectID": "posts/python-penguin-analysis/index.html#ploting-the-body-mass-and-flipper-length-grouped-by-each-penguin-type",
+    "href": "posts/python-penguin-analysis/index.html#ploting-the-body-mass-and-flipper-length-grouped-by-each-penguin-type",
+    "title": "Python Penguin Analysis",
+    "section": "Ploting the body mass and flipper length grouped by each penguin type",
+    "text": "Ploting the body mass and flipper length grouped by each penguin type\n\nfig, ax = plt.subplots(figsize=(8, 5))\n\ncolors = {\n    \"Adelie\": \"#1f77b4\",\n    \"Chinstrap\": \"#ff7f0e\",\n    \"Gentoo\": \"#2ca02c\",\n}\n\nfor species, species_data in penguins_clean.groupby(\n    \"species\",\n    observed=True,\n):\n    ax.scatter(\n        species_data[\"flipper_length_mm\"],\n        species_data[\"body_mass_g\"],\n        label=species,\n        color=colors[species],\n        alpha=0.7,\n    )\n\nax.set_title(\"Penguin body mass and flipper length\")\nax.set_xlabel(\"Flipper length (mm)\")\nax.set_ylabel(\"Body mass (g)\")\nax.legend(title=\"Species\")\nax.grid(alpha=0.2)\n\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\nFigure 1: Body mass and flipper length for the three Palmer Penguin species."
+  },
+  {
+    "objectID": "posts/python-penguin-analysis/index.html#find-the-heaviest-penguins",
+    "href": "posts/python-penguin-analysis/index.html#find-the-heaviest-penguins",
+    "title": "Python Penguin Analysis",
+    "section": "Find the heaviest penguins",
+    "text": "Find the heaviest penguins\n\nlargest_penguins = (\n    penguins_clean[\n        [\n            \"species\",\n            \"island\",\n            \"sex\",\n            \"flipper_length_mm\",\n            \"body_mass_g\",\n        ]\n    ]\n    .sort_values(\"body_mass_g\", ascending=False)\n)\n\nlargest_penguins\n\n\n\n\n\n\n\n\nspecies\nisland\nsex\nflipper_length_mm\nbody_mass_g\n\n\n\n\n169\nGentoo\nBiscoe\nmale\n221.0\n6300.0\n\n\n185\nGentoo\nBiscoe\nmale\n230.0\n6050.0\n\n\n269\nGentoo\nBiscoe\nmale\n222.0\n6000.0\n\n\n229\nGentoo\nBiscoe\nmale\n220.0\n6000.0\n\n\n263\nGentoo\nBiscoe\nmale\n229.0\n5950.0\n\n\n...\n...\n...\n...\n...\n...\n\n\n98\nAdelie\nDream\nfemale\n178.0\n2900.0\n\n\n54\nAdelie\nBiscoe\nfemale\n187.0\n2900.0\n\n\n58\nAdelie\nBiscoe\nfemale\n181.0\n2850.0\n\n\n64\nAdelie\nBiscoe\nfemale\n184.0\n2850.0\n\n\n314\nChinstrap\nDream\nfemale\n192.0\n2700.0\n\n\n\n\n342 rows × 5 columns\n\n\n\nAs we can see from the table above, the heaviest observations are Gentoo penguins as we can see from the corr. values and the plot we created."
+  },
+  {
+    "objectID": "posts/r-penguin-analysis/index.html",
+    "href": "posts/r-penguin-analysis/index.html",
+    "title": "R Penguin Analysis",
+    "section": "",
+    "text": "How do bill length and the mass differ among the penguins sex\nData: Palmer Penguins, Palmer Station Antarctica LTER."
+  },
+  {
+    "objectID": "posts/r-penguin-analysis/index.html#loading-and-prepping-the-data",
+    "href": "posts/r-penguin-analysis/index.html#loading-and-prepping-the-data",
+    "title": "R Penguin Analysis",
+    "section": "Loading and prepping the data",
+    "text": "Loading and prepping the data\n\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(palmerpenguins)\n\npenguins_clean &lt;- penguins |&gt;\n  filter(\n    !is.na(species),\n    !is.na(bill_length_mm),\n    !is.na(bill_depth_mm),\n    !is.na(sex)\n  )\n\nhead(penguins_clean)\n\n# A tibble: 6 × 8\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie  Torgersen           39.1          18.7               181        3750\n2 Adelie  Torgersen           39.5          17.4               186        3800\n3 Adelie  Torgersen           40.3          18                 195        3250\n4 Adelie  Torgersen           36.7          19.3               193        3450\n5 Adelie  Torgersen           39.3          20.6               190        3650\n6 Adelie  Torgersen           38.9          17.8               181        3625\n# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;"
+  },
+  {
+    "objectID": "posts/r-penguin-analysis/index.html#question-to-try-and-answerwork-through-and-the-data",
+    "href": "posts/r-penguin-analysis/index.html#question-to-try-and-answerwork-through-and-the-data",
+    "title": "R Penguin Analysis",
+    "section": "",
+    "text": "How do bill length and the mass differ among the penguins sex\nData: Palmer Penguins, Palmer Station Antarctica LTER."
+  },
+  {
+    "objectID": "posts/r-penguin-analysis/index.html#plotting-the-bill-length",
+    "href": "posts/r-penguin-analysis/index.html#plotting-the-bill-length",
+    "title": "R Penguin Analysis",
+    "section": "Plotting the bill length",
+    "text": "Plotting the bill length\n\nggplot(\n  penguins_clean,\n  aes(\n    x = bill_length_mm,\n    y = bill_depth_mm,\n    colour = species,\n    shape = sex\n  )\n) +\n  geom_point(alpha = 0.75, size = 2.2) +\n  labs(\n    title = \"Penguin bill dimensions vary by species\",\n    x = \"Bill length (mm)\",\n    y = \"Bill depth (mm)\",\n    colour = \"Species\",\n    shape = \"Sex\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\nFigure 1: Bill length and bill depth by Palmer Penguin species and sex."
+  },
+  {
+    "objectID": "posts/r-penguin-analysis/index.html#question-to-try-and-answerwork-through-and-the-data-with-it",
+    "href": "posts/r-penguin-analysis/index.html#question-to-try-and-answerwork-through-and-the-data-with-it",
+    "title": "R Penguin Analysis",
+    "section": "",
+    "text": "How do bill length and the mass differ among the penguins sex\nData: Palmer Penguins, Palmer Station Antarctica LTER."
+  },
+  {
+    "objectID": "posts/python-penguin-analysis/index.html#question-to-try-and-answerwork-through-and-the-data-with-it",
+    "href": "posts/python-penguin-analysis/index.html#question-to-try-and-answerwork-through-and-the-data-with-it",
+    "title": "Python Penguin Analysis",
+    "section": "",
+    "text": "How do body mass and flipper length differ among each of the penguin types\nData: Palmer Penguins, Palmer Station Antarctica LTER."
   }
 ]
