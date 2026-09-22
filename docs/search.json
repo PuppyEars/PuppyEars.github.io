@@ -21,13 +21,6 @@
     "text": "My first few weeks here have been a lot of fun but also difficult at times as I’ve moved to a new country. Understanding how certain things work here in Vancouver when compared to things in Minnesota has been fun and interesting to experience. Especially since I drove my own car here, there are lots of new things to experience. Bike lanes are not as popular in Minnesota as here in Vancouver, so I’ve had to make sure everytime I turn onto a new street I don’t hit a bicyclist riding by. Other than that I’ve done plenty of hikes and experienced all throughout Squamish and Whistler which has been a blast."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "I just graduated from my undergrad in May of 2026 from Saint John’s University with a major in Mathematics. During undergrad I played on the Saint John’s Men’s Volleyball team where I was selected as a Captain my Junior and Senior year. I’ve had two different internships during undergrad, working as a HRIS Analyst for Delta Airlines and a Data Engineer at Commscope, where I grew my pashion for the field of Data Science and Data Engineering. In my freetime I love to go mountaineering, splitboarding/ski touring, climbing, and working out/running. I’m originally from Minnesota in the United States, and I’m also a EU Blue Card eligible citizen. I’m not 100% sure where I’d like to live after finishing the MDS program at UBC but I hope to move to a place where I can continue my pashion for mountaineering and splitboarding to help me keep a solid worklife balance in my future. As a U.S. citizen with a EU Blue card the easiest places for me to move would obviously be in the U.S. or a EU country but I’m also open to living somewhere in Canada!"
-  },
-  {
     "objectID": "posts/python-penguin-analysis/index.html",
     "href": "posts/python-penguin-analysis/index.html",
     "title": "Python Penguin Analysis",
@@ -35,8 +28,8 @@
     "text": "How do body mass and flipper length differ among each of the penguin types\nData: Palmer Penguins, Palmer Station Antarctica LTER."
   },
   {
-    "objectID": "posts/python-penguin-analysis/index.html#question-to-try-and-answerwork-through-and-the-data",
-    "href": "posts/python-penguin-analysis/index.html#question-to-try-and-answerwork-through-and-the-data",
+    "objectID": "posts/python-penguin-analysis/index.html#question-to-try-and-answerwork-through-and-the-data-with-it",
+    "href": "posts/python-penguin-analysis/index.html#question-to-try-and-answerwork-through-and-the-data-with-it",
     "title": "Python Penguin Analysis",
     "section": "",
     "text": "How do body mass and flipper length differ among each of the penguin types\nData: Palmer Penguins, Palmer Station Antarctica LTER."
@@ -70,18 +63,18 @@
     "text": "How do bill length and the mass differ among the penguins sex\nData: Palmer Penguins, Palmer Station Antarctica LTER."
   },
   {
+    "objectID": "posts/r-penguin-analysis/index.html#question-to-try-and-answerwork-through-and-the-data-with-it",
+    "href": "posts/r-penguin-analysis/index.html#question-to-try-and-answerwork-through-and-the-data-with-it",
+    "title": "R Penguin Analysis",
+    "section": "",
+    "text": "How do bill length and the mass differ among the penguins sex\nData: Palmer Penguins, Palmer Station Antarctica LTER."
+  },
+  {
     "objectID": "posts/r-penguin-analysis/index.html#loading-and-prepping-the-data",
     "href": "posts/r-penguin-analysis/index.html#loading-and-prepping-the-data",
     "title": "R Penguin Analysis",
     "section": "Loading and prepping the data",
     "text": "Loading and prepping the data\n\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(palmerpenguins)\n\npenguins_clean &lt;- penguins |&gt;\n  filter(\n    !is.na(species),\n    !is.na(bill_length_mm),\n    !is.na(bill_depth_mm),\n    !is.na(sex)\n  )\n\nhead(penguins_clean)\n\n# A tibble: 6 × 8\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie  Torgersen           39.1          18.7               181        3750\n2 Adelie  Torgersen           39.5          17.4               186        3800\n3 Adelie  Torgersen           40.3          18                 195        3250\n4 Adelie  Torgersen           36.7          19.3               193        3450\n5 Adelie  Torgersen           39.3          20.6               190        3650\n6 Adelie  Torgersen           38.9          17.8               181        3625\n# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;"
-  },
-  {
-    "objectID": "posts/r-penguin-analysis/index.html#question-to-try-and-answerwork-through-and-the-data",
-    "href": "posts/r-penguin-analysis/index.html#question-to-try-and-answerwork-through-and-the-data",
-    "title": "R Penguin Analysis",
-    "section": "",
-    "text": "How do bill length and the mass differ among the penguins sex\nData: Palmer Penguins, Palmer Station Antarctica LTER."
   },
   {
     "objectID": "posts/r-penguin-analysis/index.html#plotting-the-bill-length",
@@ -91,17 +84,10 @@
     "text": "Plotting the bill length\n\nggplot(\n  penguins_clean,\n  aes(\n    x = bill_length_mm,\n    y = bill_depth_mm,\n    colour = species,\n    shape = sex\n  )\n) +\n  geom_point(alpha = 0.75, size = 2.2) +\n  labs(\n    title = \"Penguin bill dimensions vary by species\",\n    x = \"Bill length (mm)\",\n    y = \"Bill depth (mm)\",\n    colour = \"Species\",\n    shape = \"Sex\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\nFigure 1: Bill length and bill depth by Palmer Penguin species and sex."
   },
   {
-    "objectID": "posts/r-penguin-analysis/index.html#question-to-try-and-answerwork-through-and-the-data-with-it",
-    "href": "posts/r-penguin-analysis/index.html#question-to-try-and-answerwork-through-and-the-data-with-it",
-    "title": "R Penguin Analysis",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "How do bill length and the mass differ among the penguins sex\nData: Palmer Penguins, Palmer Station Antarctica LTER."
-  },
-  {
-    "objectID": "posts/python-penguin-analysis/index.html#question-to-try-and-answerwork-through-and-the-data-with-it",
-    "href": "posts/python-penguin-analysis/index.html#question-to-try-and-answerwork-through-and-the-data-with-it",
-    "title": "Python Penguin Analysis",
-    "section": "",
-    "text": "How do body mass and flipper length differ among each of the penguin types\nData: Palmer Penguins, Palmer Station Antarctica LTER."
+    "text": "I just graduated from my undergrad in May of 2026 from Saint John’s University with a major in Mathematics. During undergrad I played on the Saint John’s Men’s Volleyball team where I was selected as a Captain my Junior and Senior year. I’ve had two different internships during undergrad, working as a HRIS Analyst for Delta Airlines and a Data Engineer at Commscope, where I grew my pashion for the field of Data Science and Data Engineering. In my freetime I love to go mountaineering, splitboarding/ski touring, climbing, and working out/running. I’m originally from Minnesota in the United States, and I’m also a EU Blue Card eligible citizen. I’m not 100% sure where I’d like to live after finishing the MDS program at UBC but I hope to move to a place where I can continue my pashion for mountaineering and splitboarding to help me keep a solid worklife balance in my future. As a U.S. citizen with a EU Blue card the easiest places for me to move would obviously be in the U.S. or a EU country but I’m also open to living somewhere in Canada!"
   }
 ]
