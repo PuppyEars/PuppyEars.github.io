@@ -12,24 +12,38 @@ R
 
 ## Rebuild the website from a clean clone
 
-Clone the repository in a terminal using the git clone commands:
+Clone the repository and enter its top-level directory:
 
 ```bash
 git clone https://github.com/PuppyEars/PuppyEars.github.io.git
 cd PuppyEars.github.io
 ```
 
-Then run:
+Restore the Python environment:
+
 ```bash
 uv sync
 ```
 
-Then, within RStudio Console, run:
+Restore the R environment:
+
+```bash
+R -e 'renv::restore()'
 ```
-renv::load()
-renv::restore()
-```
-Now we back in the terminal, render the website using the below command:
-```
+
+Render the website from the top-level directory:
+
+```bash
 uv run quarto render
 ```
+
+The rendered website will be created in the `docs/` directory.
+
+## Preview the website locally
+
+Start a local preview with:
+
+```bash
+uv run quarto preview
+```
+Can also click direct link in my repo to access website
